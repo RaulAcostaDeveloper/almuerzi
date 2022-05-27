@@ -1,7 +1,7 @@
 import React from 'react';
 import { Alert, Text, TextInput, View, StyleSheet, Button} from 'react-native';
 //Depreciado?
-import {AsyncStorage} from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import useForm from '../hooks/useForm';
 
 export default ({navigation}) => {
@@ -26,7 +26,7 @@ export default ({navigation}) => {
             }
         })
         .then( respuesta => {
-            AsyncStorage.setItem('token', respuesta.token);
+            AsyncStorage.setItem('token', respuesta.token)
             navigation.navigate('Alimentos');
         })
         .catch( error => Alert.alert('Error', error))

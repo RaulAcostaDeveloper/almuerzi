@@ -9,12 +9,14 @@ import RegistroScreen from './screens/Registro';
 import AlimentosScreen from './screens/Alimentos';
 import ModalScreen from './screens/Modal';
 
+import AuthLoading from './screens/AuthLoading';
+
 const OnBoardingNavigator = createStackNavigator(
   {
     Login: LoginScreen,
     Registro:RegistroScreen,
   }, {
-    initialRouteName: 'Registro'
+    initialRouteName: 'Login'
   }
 )
 const AppNavigator = createStackNavigator(
@@ -40,10 +42,11 @@ const RootStack = createStackNavigator(
 )
 const BaseStack = createSwitchNavigator(
   {
+    AuthLoading:AuthLoading,
     OnBoarding: OnBoardingNavigator,
     Root: RootStack,
   }, {
-    initialRouteName: 'OnBoarding'
+    initialRouteName: 'AuthLoading'
   }
 )
 export default createAppContainer(BaseStack);
